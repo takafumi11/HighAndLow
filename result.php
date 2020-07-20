@@ -7,14 +7,13 @@
     $cardPlayerKey=$_POST['PlayerCardKey'];
     $highOrLow=$_POST['select'];
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>High and Low ゲーム</title>
+    
     <style>
         body{
             background-color: grey;
@@ -71,35 +70,36 @@
         }
         }
     </style>
+    <title>High and Low ゲーム</title>
 </head>
 <body>
-    <div align="center">
+<div align="center">
     <h1 class="mt-5 pt-5">High & Low ゲーム</h1>
     <hr>
     <br>
     <?php
-
-    echo<<<EOM
-
+    $purpose = "Webプログラミング";
+    echo <<< EOM
     相手のカード:
     {$cardOpponentSymbol}{$cardOpponentNumber}<br><br><br>
     あなたは「{$highOrLow}」を選択しました。<br><br><br>
     あなたのカード:
     {$cardPlayerSymbol}{$cardPlayerNumber}<br><br><br>
-    EOM;
-    if($cardOpponentKey<$cardPlayerKey){
-        $result='High';
-    }elseif($cardOpponentKey>$cardPlayerKey){
-        $result='Low';
-    }else{
-        $result=$highOrLow;
-    }
-   
-    if($result==$highOrLow){
-        echo 'YouWin!!';
-    }else{
-        echo 'YouLose!!';
-    }
+EOM;
+
+if($cardOpponentKey<$cardPlayerKey){
+    $result='High';
+}elseif($cardOpponentKey>$cardPlayerKey){
+    $result='Low';
+}else{
+    $result=$highOrLow;
+}
+
+if($result==$highOrLow){
+    echo 'YouWin!!';
+}else{
+    echo 'YouLose!!';
+}
     ?>
 <br>
 <br>
