@@ -29,16 +29,20 @@ shuffle($deck);
 
 $cardPlayer=array_shift($deck);
 $cardOpponent=array_shift($deck);
+
 ?>
 
+
+
+
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>High and Low</title>
-    <style>
+    <html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">        
+        <title>High and Low</title>
+        <style>
         body{
             background-color: grey;
             color: white;            
@@ -95,42 +99,40 @@ $cardOpponent=array_shift($deck);
         }
         }
     </style>
-</head>
-<body>
-    <div class="text-center">
-
-        <h1 class="mt-5 pt-5">High & Low ゲーム</h1>
-<hr>
-<br>
-        <form action="result.php" method="post">
+    </head>
+    <body>
+        <div class="text-center">
+            <h1 class="mt-5 pt-5">High & Low ゲーム</h1>
+            <hr>
+            <br>
+            <form action="result.php" method="post">
             <?php
-                echo <<<EOM
-                相手のカード:
-                {$cardOpponent['symbol']}{$cardOpponent['number']}
-                <input type="hidden" name="OpponentCardNumber" value="{$cardOpponent['number']}">
-                <input type="hidden" name="OpponentCardSymbol" value="{$cardOpponent['symbol']}">
-                <input type="hidden" name="OpponentCardKey" value="{$cardOpponent['key']}">
-                <input type="hidden" name="OpponentCardPower" value="{$cardOpponent['key']}">
-                <input type="hidden" name="PlayerCardNumber" value="{$cardPlayer['number']}">
-                <input type="hidden" name="PlayerCardSymbol" value="{$cardPlayer['symbol']}">
-                <input type="hidden" name="PlayerCardKey" value="{$cardPlayer['key']}">
-                <input type="hidden" name="" value="{$Power}">
-                
-                EOM;
-            ?>
-    
-            
-            <br>
-            <br>
-            <br>
-            <input type="radio" name="select" value="High" required>High
-            <input class="ml-3" type="radio" name="select" value="Low" required>Low
-            <br>
-            
-            <br>
-            <br>
-            <input type="submit" class="btn btn-secondary" value="決定">
-        </form>
-    </div>
-</body>
-</html>
+            echo <<< EOM
+            相手のカード:
+            {$cardOpponent['symbol']}{$cardOpponent['number']}
+           
+
+
+<input type="hidden" name="OpponentCardNumber" value="{$cardOpponent['number']}">
+<input type="hidden" name="OpponentCardSymbol" value="{$cardOpponent['symbol']}">
+<input type="hidden" name="OpponentCardKey" value="{$cardOpponent['key']}">
+<input type="hidden" name="OpponentCardPower" value="{$cardOpponent['key']}">
+<input type="hidden" name="PlayerCardNumber" value="{$cardPlayer['number']}">
+<input type="hidden" name="PlayerCardSymbol" value="{$cardPlayer['symbol']}">
+<input type="hidden" name="PlayerCardKey" value="{$cardPlayer['key']}">  
+EOM;
+                ?>
+                <br>
+                <br>
+                <br>
+                <input type="radio" name="select" value="High" required>High
+                <input class="ml-3" type="radio" name="select" value="Low" required>Low
+                <br>            
+                <br>
+                <br>
+                <input type="submit" class="btn btn-secondary" value="決定">
+            </form>
+         
+        </div>
+    </body>
+    </html>
